@@ -1,8 +1,8 @@
 import React,{useEffect} from 'react';
 import { SafeAreaView, View, Text, StatusBar} from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import {imageBackgroundStyle} from '@styles/General';
-import Colors from '@styles/Colors'
+import {splashStyles} from '@styles/styles';
+import Colors from '@styles/colors'
 
 export default function SplashScreen({navigation}){
 
@@ -17,7 +17,7 @@ export default function SplashScreen({navigation}){
     }
 
     return(
-        <SafeAreaView style={imageBackgroundStyle.image}>
+        <SafeAreaView style={splashStyles.image}>
             <StatusBar translucent backgroundColor='rgba(0,0,0,0.2)' />
             <Animatable.Image
                 animation='pulse'

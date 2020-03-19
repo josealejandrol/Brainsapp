@@ -4,9 +4,12 @@ import { mainStyles, loginStyles } from '@styles/styles';
 import TextInput from '@components/TextInput';
 import Colors from '@styles/colors';
 
-export default function LoginScreen({navigation}){
+export default function RegisterScreen({navigation}){
 
     const [hidePassword, setHidePassword] = useState(false);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('')
 
     return(
         <SafeAreaView style={mainStyles.container}>
@@ -20,6 +23,11 @@ export default function LoginScreen({navigation}){
                     />
                 </View>
                     <TextInput
+                        keyboardType={null}
+                        placeholder='Nombre'
+                        image='user'
+                    />
+                    <TextInput
                         keyboardType='email-address'
                         placeholder='E-mail'
                         image='user'
@@ -32,21 +40,16 @@ export default function LoginScreen({navigation}){
                         secureTextEntry={hidePassword}
                         onPress={()=> setHidePassword(!hidePassword)} 
                     />
-                <View style={mainStyles.btnMain}>
-                    <TouchableOpacity>
-                        <Text style={[mainStyles.btntxt]}>Iniciar Sesión</Text>
-                    </TouchableOpacity>
-                </View>
                 <View style={mainStyles.btnTransparent}>
-                    <TouchableOpacity
-                        onPress={()=> {navigation.navigate('Register')}}
-                    >
+                    <TouchableOpacity>
                         <Text style={[mainStyles.btntxt, {color: Colors.BLUE}]}>Registrarse</Text>
                     </TouchableOpacity>
                 </View>
-                <View>
-                    <TouchableOpacity>
-                        <Text style={{textDecorationLine: 'underline'}}>Olvide mi Contraseña</Text>
+                <View style={mainStyles.btnMain}>
+                    <TouchableOpacity 
+                        onPress={()=>{navigation.navigate('Login')}}
+                    >
+                        <Text style={[mainStyles.btntxt]}>Iniciar Sesión</Text>
                     </TouchableOpacity>
                 </View>
             {/* </ScrollView> */}
